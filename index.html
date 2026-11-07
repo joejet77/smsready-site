@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMS Ready — Part 135 SMS for small operators, declared before May 28, 2027</title>
+<meta name="description" content="A complete, running Safety Management System for Part 135 operators with one to five aircraft: documents, logs, the declaration letter, and the evidence binder your inspector asks for. Free 20-minute gap check.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--soft:#f8fafc;--acc:#1d4ed8;--acc2:#1e40af;--ok:#15803d;--warn:#b45309;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.55;background:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--acc)}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.hero{padding:56px 0 36px}
+.hero h1{font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.02em;margin:0 0 14px;max-width:820px}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 22px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:12px 20px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.sec{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.count{display:inline-block;margin-top:18px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:10px 14px;font-size:14px}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;letter-spacing:-.01em;margin:0 0 6px}.sub{color:var(--muted);margin:0 0 20px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--soft)}.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:14px}
+.step{display:flex;gap:14px;align-items:flex-start;margin:14px 0}.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step b{display:block}.step span{color:var(--muted);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.price{font-size:24px;font-weight:800;letter-spacing:-.02em}.price small{font-size:13px;color:var(--muted);font-weight:500}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font-weight:600}.faq p{color:var(--muted);margin:8px 0 0;font-size:14px}
+/* tool */
+.tool{background:#fff;border:2px solid var(--acc);border-radius:14px;padding:22px;margin-top:10px}
+.tool h3{margin:0 0 4px;font-size:17px}.tool .sub{font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 4px}
+input[type=text],input[type=number],select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14px}
+.q{padding:11px 0;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}
+.q .t{font-weight:600;font-size:14px}.q .h{font-size:13px;color:var(--muted);margin:2px 0 8px}
+.opts{display:flex;gap:6px;flex-wrap:wrap}.opts button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.opts button.sel-yes{background:#dcfce7;border-color:#86efac}.opts button.sel-part{background:#fef3c7;border-color:#fde68a}.opts button.sel-no{background:#fee2e2;border-color:#fecaca}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600}.p-ok{background:#dcfce7;color:var(--ok)}.p-warn{background:#fef3c7;color:var(--warn)}.p-bad{background:#fee2e2;color:var(--bad)}.p-na{background:#e2e8f0;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:10px 0}.tile{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px}.tile b{display:block;font-size:22px}.tile span{font-size:12px;color:var(--muted)}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:13px}.note.red{background:#fef2f2;border-color:#fecaca}.note.green{background:#f0fdf4;border-color:#bbf7d0}
+pre{white-space:pre-wrap;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:13px;font-family:inherit}
+.hidden{display:none}.foot{color:var(--muted);font-size:12px;padding:28px 0 48px;border-top:1px solid var(--line)}
+h4{font-size:15px;margin:18px 0 6px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html" style="text-decoration:none;color:inherit">SMS <span>Ready</span></a><span class="tag">For Part 135 operators with 1–5 aircraft</span></div></header>
+
+<main class="wrap">
+<div class="hero">
+  <h1>Your Part 135 SMS, built, running, and declared before May 28, 2027 — for under $5,000 the first year, not $15,000 and a binder you have to run yourself.</h1>
+  <p class="lead">The FAA now requires every charter operator to have a Safety Management System and to sign a declaration saying it's in place. SMS Ready gives a one-to-five-airplane operation the whole thing: the policy and procedures sized to your shop, the logs and checklists you'll actually use, the declaration letter, and the evidence binder your inspector asks for afterward.</p>
+  <div class="cta"><a class="btn" href="check.html">Take the free 20-minute gap check</a><a class="btn sec" href="#scope">What's included</a></div>
+  <div class="count" id="countdown"></div>
+</div>
+
+<section>
+  <h2>What you get</h2>
+  <p class="sub">Everything 14 CFR Part 5 asks for, scaled to a small operator. No 80-page manual — the rule doesn't require one.</p>
+  <div class="grid3">
+    <div class="card"><h3>Your SMS documents, written for your operation</h3><p>Safety policy with real objectives, roles and who can accept risk, emergency response checklist, risk matrix, and a compliance statement mapping every paragraph of Part 5 to where it lives. Generated from a 20-minute questionnaire, edited by you, signed by your accountable executive.</p></div>
+    <div class="card"><h3>The running system</h3><p>Log a hazard or an occurrence from your phone. Risk-assess a new airplane, route, or contractor in ten minutes. Quarterly review prompts, corrective-action tracking, training records, retention clocks. This is what "implemented" means to an inspector.</p></div>
+    <div class="card"><h3>The declaration and the evidence binder</h3><p>When the gaps are closed, the declaration letter is ready to sign and send to your PI. After you declare, one click exports an evidence binder organized the way FAA surveillance checks it.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="step"><div class="num">1</div><div><b>Gap check (free, today)</b><span>Answer 20 questions. See exactly which requirements you meet, which you don't, and whether you really qualify as a "sole individual" — most single-pilot operators don't.</span></div></div>
+  <div class="step"><div class="num">2</div><div><b>Build (first two weeks)</b><span>We generate the documents from your answers; you review, adjust, and sign. Then you start using the logs — on real flights, real changes, real squawks.</span></div></div>
+  <div class="step"><div class="num">3</div><div><b>Run (60–90 days)</b><span>The system reminds you what's due, keeps the records, and shows you when every requirement has run at least once and left a record.</span></div></div>
+  <div class="step"><div class="num">4</div><div><b>Declare and stay ready</b><span>Sign the declaration, send it to your FSDO, and keep running. When the inspector visits, hand over the binder.</span></div></div>
+</section>
+
+<section id="scope">
+  <h2>What's included</h2>
+  <p class="sub">The whole system through your declaration and your first inspection. Compliance stays yours; we make it provable.</p>
+  <div class="grid3">
+    <div class="card"><h3>Scoping</h3><p>The questionnaire, your sole-individual determination with the reasons in writing, and a gap report against every paragraph of Part 5.</p></div>
+    <div class="card"><h3>Documents, from your answers</h3><p>Safety policy with objectives; roles and who can accept risk; emergency response checklist; risk matrix and assessment procedure; hazard and occurrence reporting (confidential where required); self-audit checklist; corrective-action procedure; training outline; communication procedure; and the compliance statement mapping each requirement to its document. Edited with you, signed by your accountable executive.</p></div>
+    <div class="card"><h3>The running system</h3><p>Hazard and occurrence logging from a phone, risk-assessment worksheets, quarterly review prompts and the accountable-executive review record, corrective actions tracked to closure, training and communication logs, retention clocks and exports.</p></div>
+    <div class="card"><h3>Implementation tracking</h3><p>A dashboard showing which requirements have run at least once and left a record. That is what "implemented" means when you sign.</p></div>
+    <div class="card"><h3>Declaration and evidence binder</h3><p>The declaration letter, generated when the dashboard is clear, with a send log. After you declare, a one-click binder organized the way FAA surveillance checks it.</p></div>
+    <div class="card"><h3>Support</h3><p>Email support on every plan. Build &amp; Declare adds a weekly 30-minute working call for 90 days. Readiness Review adds a mock surveillance visit.</p></div>
+  </div>
+  <h3 style="margin:22px 0 6px;font-size:16px">What's not included</h3>
+  <p style="color:var(--muted);font-size:14px;margin:0">We don't certify compliance or promise an inspection outcome: the declaration is yours and the FAA validates in surveillance. We don't represent you to the FSDO, attend your surveillance visit, or give legal advice on applicability. We don't cover operations manuals, training programs, or maintenance programs: Part 5 only.</p>
+</section>
+
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p class="sub">For reference: the FAA estimates $8,000–$41,000 to stand up SMS at a small operator. Consultants charge $5,000–$15,000 for a manual you then have to run yourself; enterprise SMS software starts around $300/month before setup.</p>
+  <table>
+    <tr><th>Plan</th><th>Who it's for</th><th>Price</th></tr>
+    <tr><td><b>Build &amp; Declare</b></td><td>We build it with you over 90 days — documents, logs, training, first reviews — through the signed declaration. Then the subscription keeps you inspection-ready.</td><td><span class="price">$4,900<small> one-time</small></span><br><small style="color:var(--muted)">then $299/month</small></td></tr>
+    <tr><td><b>Small Operator</b></td><td>Self-serve. 2–10 people, 1–5 aircraft. The complete system, generated from your answers; you run it with our reminders.</td><td><span class="price">$399<small>/month</small></span><br><small style="color:var(--muted)">or $3,990/year</small></td></tr>
+    <tr><td><b>Sole Individual</b></td><td>One person who does everything — and passes the 5.9(e) test in the gap check.</td><td><span class="price">$149<small>/month</small></span></td></tr>
+    <tr><td><b>Readiness Review</b></td><td>Already started? Send us what you have; get a gap report against the inspector's checklist, a 90-day plan, and a mock surveillance visit.</td><td><span class="price">$3,500<small> one-time</small></span></td></tr>
+    <tr><td><b>Pilot Partner</b></td><td>The first ten operators, in exchange for a weekly 15-minute feedback call through the deadline.</td><td><span class="price">50% off<small> every plan, for life</small></span></td></tr>
+  </table>
+</section>
+
+<section class="faq">
+  <h2>Questions operators ask</h2>
+  <details><summary>I'm a single-pilot operation. Doesn't the rule mostly exempt me?</summary><p>Only if you're a "sole individual" — one person who does <i>everything</i>: flies, schedules, plans, fuels, handles the airplane, and tracks and coordinates maintenance. A second pilot, a scheduler, or letting your shop track maintenance means the full rule applies. Even a true sole individual still owes risk management, most of safety assurance, training, documentation, and the declaration. The gap check tells you which you are and why.</p></details>
+  <details><summary>Can't I just use the FAA's free WBAT tool?</summary><p>WBAT is a reporting database. The FAA says it "can be used to assist" — compliance is the implemented processes and the records, not the software. You'd still need the policy, the risk process, the reviews, the training records, and the paragraph-by-paragraph mapping. SMS Ready includes WBAT-compatible reporting if you want to keep using it.</p></details>
+  <details><summary>Do I need an SMS manual?</summary><p>No. Part 5 requires documented policy, processes, and procedures. The FAA's advisory circular says a compliance statement mapping each paragraph to your documents is acceptable. We generate that statement; the "manual" is a set of short, usable documents.</p></details>
+  <details><summary>What does the FAA do with my declaration?</summary><p>Acknowledges it. There's no approval step — the declaration is your legal statement that the SMS is developed and implemented. Inspectors verify each component in surveillance afterward, which is why the evidence binder matters more than the letter.</p></details>
+  <details><summary>Does this guarantee I pass?</summary><p>No one can promise that, and anyone who does is selling you something else. SMS Ready gives you a complete, running system and the records to show for it. Compliance stays with the certificate holder and its accountable executive, exactly as the rule says.</p></details>
+</section>
+
+<section id="contact">
+  <h2>Talk to a pilot, not a sales team</h2>
+  <p class="sub">SMS Ready is built by a working corporate pilot with an engineering team behind it. If you run a small Part 135 shop, fifteen minutes on the phone will tell you where you stand before May 28, 2027.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center"><a class="btn" href="check.html">Start with the free gap check</a><span style="font-family:ui-monospace,monospace;font-size:15px;background:#f1f5f9;padding:10px 14px;border-radius:8px">contact@smsready.aero</span></div>
+</section>
+</main>
+<p class="foot">SMS Ready is an independent product and is not affiliated with the FAA. The gap check maps your answers to 14 CFR Part 5 as in force in November 2026, AC 120-92D, and FAA Notice N 8900.737. It is a self-assessment aid, not FAA acceptance or legal advice. Compliance with Part 5 remains the responsibility of the certificate holder and its accountable executive. Confirm how your principal inspector wants the declaration submitted.</p>
+
+
+
+<script>(function(){const d=Math.max(0,Math.round((new Date('2027-05-28T00:00:00-04:00')-new Date())/86400000));var el=document.getElementById('countdown');if(el)el.textContent=d+" days until the May 28, 2027 declaration deadline.";})();</script>
+</body></html>

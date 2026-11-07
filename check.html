@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Part 5 SMS gap check — SMS Ready</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--soft:#f8fafc;--acc:#1d4ed8;--acc2:#1e40af;--ok:#15803d;--warn:#b45309;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.55;background:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--acc)}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.hero{padding:56px 0 36px}
+.hero h1{font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.02em;margin:0 0 14px;max-width:820px}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 22px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:12px 20px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.sec{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.count{display:inline-block;margin-top:18px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:10px 14px;font-size:14px}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;letter-spacing:-.01em;margin:0 0 6px}.sub{color:var(--muted);margin:0 0 20px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--soft)}.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:14px}
+.step{display:flex;gap:14px;align-items:flex-start;margin:14px 0}.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step b{display:block}.step span{color:var(--muted);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.price{font-size:24px;font-weight:800;letter-spacing:-.02em}.price small{font-size:13px;color:var(--muted);font-weight:500}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font-weight:600}.faq p{color:var(--muted);margin:8px 0 0;font-size:14px}
+/* tool */
+.tool{background:#fff;border:2px solid var(--acc);border-radius:14px;padding:22px;margin-top:10px}
+.tool h3{margin:0 0 4px;font-size:17px}.tool .sub{font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 4px}
+input[type=text],input[type=number],select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14px}
+.q{padding:11px 0;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}
+.q .t{font-weight:600;font-size:14px}.q .h{font-size:13px;color:var(--muted);margin:2px 0 8px}
+.opts{display:flex;gap:6px;flex-wrap:wrap}.opts button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.opts button.sel-yes{background:#dcfce7;border-color:#86efac}.opts button.sel-part{background:#fef3c7;border-color:#fde68a}.opts button.sel-no{background:#fee2e2;border-color:#fecaca}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600}.p-ok{background:#dcfce7;color:var(--ok)}.p-warn{background:#fef3c7;color:var(--warn)}.p-bad{background:#fee2e2;color:var(--bad)}.p-na{background:#e2e8f0;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:10px 0}.tile{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px}.tile b{display:block;font-size:22px}.tile span{font-size:12px;color:var(--muted)}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:13px}.note.red{background:#fef2f2;border-color:#fecaca}.note.green{background:#f0fdf4;border-color:#bbf7d0}
+pre{white-space:pre-wrap;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:13px;font-family:inherit}
+.hidden{display:none}.foot{color:var(--muted);font-size:12px;padding:28px 0 48px;border-top:1px solid var(--line)}
+h4{font-size:15px;margin:18px 0 6px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html" style="text-decoration:none;color:inherit">SMS <span>Ready</span></a><span class="tag">For Part 135 operators with 1–5 aircraft</span></div></header>
+
+<main class="wrap">
+<div class="hero" style="padding:36px 0 8px"><h1 style="font-size:30px">Free 20-minute Part 5 gap check</h1><p class="lead">Answer honestly; nothing is stored. You get your sole-individual status with the reasons, a score against every requirement, what closes each gap, a 90-day plan, and a draft declaration letter.</p></div>
+<section id="check">
+  
+  <div class="tool">
+    <h3>Step 1 — About your operation</h3>
+    <div class="grid">
+      <div><label>Operator name</label><input type="text" id="op_name" placeholder="Example Air Charter, LLC"></div>
+      <div><label>Part 135 certificate number</label><input type="text" id="op_cert" placeholder="e.g. 1ABC135X"></div>
+      <div><label>Physical address</label><input type="text" id="op_addr" placeholder="123 Hangar Rd, Teterboro, NJ 07608"></div>
+      <div><label>Your FSDO or CMO</label><input type="text" id="op_fsdo" placeholder="Teterboro FSDO"></div>
+      <div><label>Accountable executive — name</label><input type="text" id="ae_name" placeholder="Jane Doe"></div>
+      <div><label>Accountable executive — title</label><input type="text" id="ae_title" placeholder="President / Director of Operations"></div>
+      <div><label>Aircraft on the certificate</label><input type="number" id="op_ac" min="1" value="2"></div>
+      <div><label>People in the operation (employees and regular contractors)</label><input type="number" id="op_people" min="1" value="4"></div>
+      <div><label>Do you also hold a 91.147 air-tour LOA?</label><select id="op_loa"><option>No</option><option>Yes</option></select></div>
+      <div><label>In the FAA voluntary program (SMSVP) today?</label><select id="op_smsvp"><option>No</option><option>Yes, with an acknowledgment letter</option><option>Yes, in progress</option></select></div>
+    </div>
+
+    <h3 style="margin-top:22px">Step 2 — Who does what?</h3>
+    <p class="sub">This decides whether the "sole individual" provisions apply to you.</p>
+    <div class="grid">
+      <div><label>How many pilots fly for the certificate, including contract pilots?</label><input type="number" id="r_pilots" min="1" value="2"></div>
+      <div><label>Who schedules flights and exercises operational control?</label><select id="r_opcon"><option>The pilot-owner, only</option><option>Someone else (scheduler, DO, dispatcher)</option></select></div>
+      <div><label>Who tracks and coordinates maintenance?</label><select id="r_mx"><option>The pilot-owner, only</option><option>An employee or DOM</option><option>Our maintenance shop handles tracking</option></select></div>
+      <div><label>Who does flight planning, weight and balance, fueling, and ground handling?</label><select id="r_ground"><option>The pilot-owner, only</option><option>Someone else does some of it</option></select></div>
+      <div><label>Any employee with a safety-related job (mechanic, line tech, dispatcher)?</label><select id="r_safety"><option>No</option><option>Yes</option></select></div>
+      <div><label>Office staff who only do bookkeeping or answer phones?</label><select id="r_office"><option>No</option><option>Yes</option></select></div>
+    </div>
+    <div id="sole_result" class="note" style="margin-top:12px"></div>
+
+    <h3 style="margin-top:22px">Step 3 — What do you have today?</h3>
+    <p class="sub">Answer for what exists <b>and is in use</b>. "Partly" means something exists but isn't signed, current, or leaving records.</p>
+    <div id="questions"></div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn" id="run">Show my gap report</button><button class="btn sec" id="reset">Start over</button></div>
+
+    <div id="report" class="hidden">
+      <h3 style="margin-top:28px">Your gap report</h3>
+      <div class="tiles" id="tiles"></div>
+      <div id="summary_note" class="note"></div>
+      <h4>By component</h4>
+      <table id="comp_table"><thead><tr><th>Component</th><th>In place</th><th>Partly</th><th>Missing</th><th>Not required for you</th></tr></thead><tbody></tbody></table>
+      <h4>What's missing and what closes it</h4>
+      <table id="gap_table"><thead><tr><th>Rule</th><th>What it requires</th><th>Status</th><th>What the inspector will ask to see</th><th>What SMS Ready gives you</th></tr></thead><tbody></tbody></table>
+      <h4>Records you must keep</h4>
+      <ul style="font-size:14px">
+        <li>Risk assessments: as long as the control is still in use.</li>
+        <li>Audits, reviews, investigations, corrective actions: at least 5 years.</li>
+        <li>Training records: as long as the person works for you.</li>
+        <li>Safety communications and hazard notices: at least 24 months <span id="rec_sole"></span>.</li>
+      </ul>
+      <h4>Your 90-day plan</h4>
+      <ol id="plan" style="font-size:14px"></ol>
+      <h4>Draft declaration letter</h4>
+      <div id="decl_note" class="note red"></div>
+      <pre id="decl"></pre>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn sec" id="copy_decl">Copy letter</button><button class="btn sec" id="copy_report">Copy full report</button><span id="copied" style="font-size:13px;color:var(--ok);align-self:center"></span></div>
+      <div class="note green" style="margin-top:18px"><b>Want the gaps closed for you?</b> Build &amp; Declare takes you from this report to a signed declaration in 90 days; the Small Operator plan generates every document on this list from the answers you just gave and runs the reminders. The first ten operators get 50% off for life as Pilot Partners. <b>contact@smsready.aero</b></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<p class="foot">SMS Ready is an independent product and is not affiliated with the FAA. The gap check maps your answers to 14 CFR Part 5 as in force in November 2026, AC 120-92D, and FAA Notice N 8900.737. It is a self-assessment aid, not FAA acceptance or legal advice. Compliance with Part 5 remains the responsibility of the certificate holder and its accountable executive. Confirm how your principal inspector wants the declaration submitted.</p>
+</main>
+
+<script>
+(function(){const d=Math.max(0,Math.round((new Date('2027-05-28T00:00:00-04:00')-new Date())/86400000));var el=document.getElementById('countdown');if(el)el.textContent=d+" days until the May 28, 2027 declaration deadline.";})();
+
+// Requirements: [rule, component, plain requirement, inspector evidence, what we give, sole-individual relief, question]
+const REQ = [
+ ["5.21(a)(1)-(3)","Policy","A written safety policy with safety objectives, a commitment to meet them, and a promise of the resources to do it","The signed policy","Safety policy with 1–3 measurable objectives","no","A written safety policy with objectives?"],
+ ["5.21(a)(4)","Policy","A policy telling employees how to report safety problems","Policy text","Employee reporting clause","yes","A written policy on how employees report safety issues?"],
+ ["5.21(a)(5)","Policy","A policy defining unacceptable behavior and when discipline applies","Policy text","Just-culture / discipline clause","yes","A written policy on unacceptable behavior and discipline?"],
+ ["5.21(a)(6), 5.27","Policy","An emergency response plan, coordinated with the people you interface with, approved by the accountable executive","The ERP with approval","Emergency response checklist","partly","An emergency response plan approved by the accountable executive?"],
+ ["5.21(a)(7)","Policy","A code of ethics: safety is the highest priority, for everyone including the owners","Policy text","Code-of-ethics clause","no","A safety-first code of ethics in the policy?"],
+ ["5.21(b), 5.25(b)(2)","Policy","The accountable executive has signed the policy","Signature and date","Signature block with date","no","Is the policy signed and dated by the accountable executive?"],
+ ["5.21(c), 5.25(b)(3)","Policy","Everyone in the operation has been given the policy","A distribution or read-and-sign record","Read-and-acknowledge log","yes","A record that everyone has received the policy?"],
+ ["5.21(d), 5.25(b)(4)","Policy","The accountable executive reviews the policy regularly","A dated review record","Annual AE review entry","no","A dated record of the accountable executive reviewing the policy?"],
+ ["5.23, 5.25(a)","Policy","A named accountable executive with final authority, plus who is responsible for what and who may accept safety risk","Policy text naming people","Roles and risk-acceptance table","partly","An accountable executive named in writing, with who can accept risk?"],
+ ["5.25(c)","Policy","Someone designated to run the SMS day to day","Designation in writing","Safety manager designation (can be the AE)","yes","Someone designated in writing to manage the SMS?"],
+ ["5.51, 5.53","Risk management","A way to look at your operation and find hazards whenever you add or change an aircraft, procedure, route, base, or person — and when a problem turns up","Completed hazard-identification worksheets","Change/hazard trigger form and system checklist","no","A hazard identification process you use on changes (new aircraft, new route, new contractor)?"],
+ ["5.55","Risk management","A way to rate each risk against a defined scale, decide on controls, and check them before they go live","Risk assessments with the scale and the decision","Risk matrix and assessment worksheet","no","Written risk assessments using a defined risk matrix?"],
+ ["5.57","Risk management","Telling the FBO, shop, or airport when you find a hazard that affects them","A notification record","Hazard-notification log","no","A record of telling others about hazards you found?"],
+ ["5.71(a)(1)-(6),(8), (b)","Safety assurance","Collecting and reviewing data: how operations are going, what changed, self-audits, incidents, noncompliance, and hazard notices you receive","Occurrence log, audit and investigation records","Occurrence log, self-audit checklist, investigation form","no","An occurrence/deviation log, self-audits, and investigation records?"],
+ ["5.71(a)(7)","Safety assurance","A confidential way for employees to report, with no reprisal","Reports and how they were handled","Confidential report intake with hazard log","yes","A confidential employee reporting channel in use?"],
+ ["5.73","Safety assurance","Regular reviews of safety performance against your objectives, with the accountable executive, checking that controls work","Review records","Quarterly/annual performance review","no","Regular safety performance reviews with the accountable executive?"],
+ ["5.75","Safety assurance","Fixing what the reviews find, and tracking it to closure","Corrective-action records","Corrective-action tracker","no","Corrective actions tracked to closure?"],
+ ["5.91","Promotion","SMS training for everyone with SMS duties, with records","A training record per person","SMS training record","no","SMS training records for each person with duties?"],
+ ["5.93","Promotion","Telling people about the policy, the hazards, and why you made changes","Communication records","Safety bulletin / meeting log","yes","A log of safety communications (bulletins, meetings)?"],
+ ["5.95","Documentation","Written policy, processes, and procedures, with a map showing where each Part 5 requirement lives","The documents and the compliance map","Compliance statement (paragraph-to-document map)","no","A compliance statement mapping each requirement to a document?"],
+ ["5.97","Records","Records kept for the required time and retrievable on request","The records","Retention schedule with export","partly","A records retention schedule?"],
+];
+const COMPS=["Policy","Risk management","Safety assurance","Promotion","Documentation","Records"];
+const answers={};const qdiv=document.getElementById('questions');
+REQ.forEach((r,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<div class="t">${i+1}. ${r[6]}</div><div class="h">${r[2]}.</div><div class="opts" data-i="${i}"><button data-v="yes">Yes, in use</button><button data-v="part">Partly</button><button data-v="no">No</button></div>`;qdiv.appendChild(d);});
+qdiv.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const o=b.parentElement;answers[o.dataset.i]=b.dataset.v;[...o.children].forEach(c=>c.className='');b.className='sel-'+b.dataset.v;});
+
+function soleTest(){const pilots=+document.getElementById('r_pilots').value||1;const g=id=>document.getElementById(id).value;const reasons=[];
+ if(pilots>1)reasons.push("more than one pilot flies for the certificate");
+ if(!g('r_opcon').startsWith('The pilot-owner'))reasons.push("someone other than the pilot-owner exercises operational control");
+ if(g('r_mx')==="An employee or DOM")reasons.push("an employee tracks maintenance");
+ if(g('r_mx').startsWith("Our maintenance shop"))reasons.push("the maintenance shop, not the pilot-owner, tracks and coordinates maintenance");
+ if(!g('r_ground').startsWith('The pilot-owner'))reasons.push("someone else does flight planning, weight and balance, fueling, or ground handling");
+ if(g('r_safety')==="Yes")reasons.push("an employee has a safety-related job");
+ return{sole:reasons.length===0,reasons};}
+function renderSole(){const t=soleTest();const el=document.getElementById('sole_result');
+ if(t.sole){el.className='note green';el.innerHTML="<b>You appear to qualify as a sole individual (5.9(e)).</b> One person does every necessary job. Seven requirements don't apply to you (employee reporting and discipline policies, distributing the policy, management accountabilities, a safety-manager designation, a confidential reporting system, safety communications), and parts of the emergency plan and records rules are relaxed. Everything else still applies — risk management, most of safety assurance, hazard notification, training, documentation, and the declaration. Bookkeepers and phone staff don't change this. Adding a second pilot or handing maintenance tracking to someone else ends the exemption.";}
+ else{el.className='note';el.innerHTML="<b>You do not qualify as a sole individual</b> because "+t.reasons.join("; ")+". The full rule applies. (\"Single-pilot\" and \"sole individual\" are not the same thing: the test is whether one person does <i>all</i> of it — flying, operational control, planning, W&B, fueling, ground handling, maintenance tracking, and the money decisions.)";}}
+['r_pilots','r_opcon','r_mx','r_ground','r_safety','r_office'].forEach(id=>document.getElementById(id).addEventListener('change',renderSole));renderSole();
+
+function v(id){return document.getElementById(id).value.trim();}
+document.getElementById('run').addEventListener('click',()=>{
+ const sole=soleTest().sole;const rows=[];const comp={};COMPS.forEach(c=>comp[c]={yes:0,part:0,no:0,na:0});
+ REQ.forEach((r,i)=>{const a=answers[i]||'no';const st=(sole&&r[5]==='yes')?'na':a;comp[r[1]][st]++;rows.push({cfr:r[0],comp:r[1],req:r[2],ev:r[3],art:r[4],st});});
+ const met=rows.filter(x=>x.st==='yes').length,part=rows.filter(x=>x.st==='part').length,gap=rows.filter(x=>x.st==='no').length,na=rows.filter(x=>x.st==='na').length;
+ const pct=Math.round(100*(met+0.5*part)/(rows.length-na));
+ document.getElementById('tiles').innerHTML=`<div class="tile"><b>${pct}%</b><span>of what applies to you is in place</span></div><div class="tile"><b>${met}</b><span>in place</span></div><div class="tile"><b>${part}</b><span>partly</span></div><div class="tile"><b>${gap}</b><span>missing</span></div><div class="tile"><b>${na}</b><span>not required for you</span></div>`;
+ const days=Math.max(0,Math.round((new Date('2027-05-28T00:00:00-04:00')-new Date())/86400000));
+ document.getElementById('summary_note').innerHTML=`<b>${days} days to May 28, 2027.</b> ${gap+part===0?"Everything that applies to you is in place. Check the records exist, then your accountable executive can sign the letter below.":`${gap+part} items need work before your accountable executive can truthfully sign a letter saying the SMS is developed <i>and implemented</i>. "Implemented" means the processes have run at least once and left a record: a risk assessment on a real change, a squawk logged, a review held.`} ${v('op_smsvp').startsWith('Yes, with')?"Your SMSVP acknowledgment letter stays valid until you declare or until May 28, 2027, whichever comes first.":""}`;
+ document.querySelector('#comp_table tbody').innerHTML=COMPS.map(c=>`<tr><td>${c}</td><td>${comp[c].yes}</td><td>${comp[c].part}</td><td>${comp[c].no}</td><td>${comp[c].na}</td></tr>`).join('');
+ const pill={yes:'<span class="pill p-ok">in place</span>',part:'<span class="pill p-warn">partly</span>',no:'<span class="pill p-bad">missing</span>',na:'<span class="pill p-na">not required</span>'};
+ document.querySelector('#gap_table tbody').innerHTML=rows.filter(x=>x.st!=='yes').map(x=>`<tr><td>${x.cfr}</td><td>${x.req}</td><td>${pill[x.st]}</td><td>${x.st==='na'?'Not required for a sole individual (still log hazards where relevant)':x.ev}</td><td>${x.st==='na'?'':x.art}</td></tr>`).join('')||'<tr><td colspan="5">Nothing missing. Confirm each record exists and is current.</td></tr>';
+ document.getElementById('rec_sole').textContent=sole?"(relaxed for a sole individual; keep hazard notices anyway)":"";
+ const need=s=>rows.some(x=>x.st!=='yes'&&x.st!=='na'&&x.cfr.startsWith(s));const plan=[];
+ if(need('5.21')||need('5.23')||need('5.25'))plan.push("Days 1–14: write and sign the safety policy (objectives, ethics, roles, who accepts risk"+(sole?"":", reporting and discipline")+"); approve the emergency checklist; have everyone read and sign.");
+ if(need('5.5'))plan.push("Days 1–30: adopt the risk matrix and risk-assess one real current change (new aircraft, route, or contractor); log the hazards; tell anyone affected.");
+ if(need('5.7'))plan.push("Days 15–45: start the occurrence log and the confidential reporting channel; do one self-audit against your OpSpecs and GOM; open corrective actions for what you find.");
+ if(need('5.9'))plan.push("Days 30–60: run SMS training for everyone with duties and record it; send the first safety bulletin; write the compliance map; set the retention clocks.");
+ plan.push("Days 60–90: hold the first performance review with the accountable executive, close corrective actions, assemble the evidence binder, sign the declaration, send it to your PI, and log the date.");
+ document.getElementById('plan').innerHTML=plan.map(p=>`<li>${p}</li>`).join('');
+ const ready=(gap+part===0);
+ document.getElementById('decl_note').innerHTML=ready?"Everything that applies is in place. The declaration is a legal statement by the certificate holder; the FAA acknowledges it but doesn't approve the SMS, and inspectors verify each component afterward.":`Draft only. Don't sign until the ${gap+part} open items are implemented and leaving records. The letter says the SMS is developed <b>and implemented</b>; inspectors check that in surveillance.`;
+ const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+ document.getElementById('decl').textContent=`${today}
+
+${v('op_fsdo')||'[Responsible Flight Standards Office]'}
+Attn: Principal Operations Inspector
+
+Subject: Declaration of Compliance — 14 CFR Part 5 Safety Management System
+
+${v('op_name')||'[Certificate holder name]'}
+Air Carrier Certificate No. ${v('op_cert')||'[certificate number]'}
+${v('op_addr')||'[physical address]'}
+
+In accordance with 14 CFR 5.9(a)(2), ${v('op_name')||'[Certificate holder name]'} declares that it has developed and implemented a Safety Management System that meets the requirements of 14 CFR Part 5.${sole?" The certificate holder is a sole individual as described in 14 CFR 5.9(e).":""}${v('op_loa')==='Yes'?"\n\nA separate declaration is submitted for the operator's 91.147 Letter of Authorization.":""}
+
+The accountable executive for the Safety Management System is ${v('ae_name')||'[name]'}, ${v('ae_title')||'[title]'}.
+
+Documentation of the Safety Management System and its records are maintained at the address above and are available to the FAA upon request.
+
+
+______________________________
+${v('ae_name')||'[Accountable executive name]'}
+${v('ae_title')||'[Title]'}
+${v('op_name')||'[Certificate holder name]'}`;
+ document.getElementById('report').classList.remove('hidden');document.getElementById('report').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('reset').addEventListener('click',()=>location.reload());
+function copy(t){try{navigator.clipboard.writeText(t).then(()=>{const c=document.getElementById('copied');c.textContent='copied';setTimeout(()=>c.textContent='',2000);},()=>{document.getElementById('copied').textContent='select the text and copy';});}catch(e){document.getElementById('copied').textContent='select the text and copy';}}
+document.getElementById('copy_decl').addEventListener('click',()=>copy(document.getElementById('decl').textContent));
+document.getElementById('copy_report').addEventListener('click',()=>copy(document.getElementById('report').innerText));
+</script>
+</body></html>

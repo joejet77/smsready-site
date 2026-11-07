@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms and privacy — SMS Ready</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--soft:#f8fafc;--acc:#1d4ed8;--acc2:#1e40af;--ok:#15803d;--warn:#b45309;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);line-height:1.55;background:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-weight:800;letter-spacing:-.02em}.brand span{color:var(--acc)}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.hero{padding:56px 0 36px}
+.hero h1{font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.02em;margin:0 0 14px;max-width:820px}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 22px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:12px 20px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.btn.sec{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.count{display:inline-block;margin-top:18px;background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:10px 14px;font-size:14px}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;letter-spacing:-.01em;margin:0 0 6px}.sub{color:var(--muted);margin:0 0 20px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--soft)}.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:14px}
+.step{display:flex;gap:14px;align-items:flex-start;margin:14px 0}.num{flex:0 0 32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step b{display:block}.step span{color:var(--muted);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.price{font-size:24px;font-weight:800;letter-spacing:-.02em}.price small{font-size:13px;color:var(--muted);font-weight:500}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font-weight:600}.faq p{color:var(--muted);margin:8px 0 0;font-size:14px}
+/* tool */
+.tool{background:#fff;border:2px solid var(--acc);border-radius:14px;padding:22px;margin-top:10px}
+.tool h3{margin:0 0 4px;font-size:17px}.tool .sub{font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:13px;color:var(--muted);margin:8px 0 4px}
+input[type=text],input[type=number],select{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14px}
+.q{padding:11px 0;border-bottom:1px solid var(--line)}.q:last-child{border-bottom:0}
+.q .t{font-weight:600;font-size:14px}.q .h{font-size:13px;color:var(--muted);margin:2px 0 8px}
+.opts{display:flex;gap:6px;flex-wrap:wrap}.opts button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.opts button.sel-yes{background:#dcfce7;border-color:#86efac}.opts button.sel-part{background:#fef3c7;border-color:#fde68a}.opts button.sel-no{background:#fee2e2;border-color:#fecaca}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600}.p-ok{background:#dcfce7;color:var(--ok)}.p-warn{background:#fef3c7;color:var(--warn)}.p-bad{background:#fee2e2;color:var(--bad)}.p-na{background:#e2e8f0;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:10px 0}.tile{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px}.tile b{display:block;font-size:22px}.tile span{font-size:12px;color:var(--muted)}
+.note{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:13px}.note.red{background:#fef2f2;border-color:#fecaca}.note.green{background:#f0fdf4;border-color:#bbf7d0}
+pre{white-space:pre-wrap;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:13px;font-family:inherit}
+.hidden{display:none}.foot{color:var(--muted);font-size:12px;padding:28px 0 48px;border-top:1px solid var(--line)}
+h4{font-size:15px;margin:18px 0 6px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html" style="text-decoration:none;color:inherit">SMS <span>Ready</span></a><span class="tag">For Part 135 operators with 1–5 aircraft</span></div></header>
+
+<main class="wrap"><div class="hero" style="padding:36px 0 8px"><h1 style="font-size:30px">Terms of service and privacy</h1><p class="lead">Placeholder for counsel review before the first paid customer.</p></div>
+<section><h2>What SMS Ready is</h2><p class="sub">SMS Ready provides software, document templates generated from your answers, reminders, and record-keeping to help a Part 135 certificate holder develop, implement, and document a Safety Management System under 14 CFR Part 5. SMS Ready is an independent product, not affiliated with the FAA.</p>
+<h2>What it is not</h2><p class="sub">SMS Ready does not certify compliance, does not represent you to the FAA, and does not provide legal advice. Compliance with Part 5, the content and signature of any declaration of compliance, and the outcome of FAA surveillance remain the responsibility of the certificate holder and its accountable executive.</p>
+<h2>Privacy</h2><p class="sub">The free gap check stores nothing: your answers stay in your browser. Subscribers' records are stored encrypted, belong to the subscriber, are exportable at any time, and are never shared with the FAA or any third party except as the subscriber directs or the law requires. Full policy to follow.</p></section></main>
+<p class="foot">SMS Ready is an independent product and is not affiliated with the FAA.</p></body></html>
