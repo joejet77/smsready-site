@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://smsready.aero/sitemap.xml
+Sitemap: https://monmouthaviation.com/sitemap.xml
